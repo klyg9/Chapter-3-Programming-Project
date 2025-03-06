@@ -1,27 +1,34 @@
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
+#include <cmath>   
+#include <iomanip> 
 
 using namespace std;
 
 int main() {
-    // Seed the random number generator
-    srand(time(0));
+    double principal, rate;
+    int timesCompounded, years;
 
-    // Generate two random numbers between 100 and 999
-    int num1 = rand() % 900 + 100;
-    int num2 = rand() % 900 + 100;
+     // Get user input
+    cout << "Enter the principal amount ($): ";
+    cin >> principal;
 
-    // Display the math problem
-    cout << "Solve the following problem:" << endl;
-    cout << num1 << "/+" << num2 << endl;
+    cout << "Enter the interest rate (%): ";
+    cin >> rate;
 
-    // Prompt student to press Enter to check the answer
-    cout << "Press Enter when you are ready to see the answer...";
-    cin.get();
+    cout << "Enter the number of times interest is compounded per year: ";
+    cin >> timesCompounded;
 
-    // Display the correct answer
-    cout << num1 << "/+" << num2 << "= " << (num1 + num2) << endl;
+    cout << "Enter the number of years: ";
+    cin >> years;
+
+    // Calculate the amount using the compound interest formula
+    double amount = principal * pow(1 + rate / (100 * timesCompounded), timesCompounded * years);
+
+    // Display the results
+    cout << fixed << setprecision(2); // Set precision for output
+    cout << "\nPrincipal: $" << principal << endl;
+    cout << "Interest: $" << amount - principal << endl;
+    cout << "Amount in Savings: $" << amount << endl;
 
     return 0;
 }
