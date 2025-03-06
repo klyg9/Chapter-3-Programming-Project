@@ -1,33 +1,27 @@
 #include <iostream>
-#include <iomanip>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
-void calculateIngredients(int numCookies) {
-    // Given recipe for 48 cookies
-    double sugarPerCookie = 1.5 / 48;
-    double butterPerCookie = 1.0 / 48;
-    double flourPerCookie = 2.75 / 48;
-
-    // Calculate required ingredients
-    double sugarNeeded = sugarPerCookie * numCookies;
-    double butterNeeded = butterPerCookie * numCookies;
-    double flourNeeded = flourPerCookie * numCookies;
-
-    // Display results
-    cout << "To make " << numCookies << " cookies, you will need:" << endl;
-    cout << fixed << setprecision(2);
-    cout << sugarNeeded << " cups of sugar" << endl;
-    cout << butterNeeded << " cups of butter" << endl;
-    cout << flourNeeded << " cups of flour" << endl;
-}
-
 int main() {
-    int numCookies;
-    cout << "Enter the number of cookies you want to make: ";
-    cin >> numCookies;
+    // Seed the random number generator
+    srand(time(0));
 
-    calculateIngredients(numCookies);
+    // Generate two random numbers between 100 and 999
+    int num1 = rand() % 900 + 100;
+    int num2 = rand() % 900 + 100;
+
+    // Display the math problem
+    cout << "Solve the following problem:" << endl;
+    cout << num1 << "/+" << num2 << endl;
+
+    // Prompt student to press Enter to check the answer
+    cout << "Press Enter when you are ready to see the answer...";
+    cin.get();
+
+    // Display the correct answer
+    cout << num1 << "/+" << num2 << "= " << (num1 + num2) << endl;
 
     return 0;
 }
